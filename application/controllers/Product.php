@@ -15,6 +15,14 @@ class Product extends CI_Controller
         $this->load->view('layout', $data);
     }
 
+    public function detail($id = null)
+    {
+        $decrypted_id = base64_decode($id);
+        $data['query'] = $this->product_model->get_all(array('products.id' => $decrypted_id));
+        $data['content'] = 'products/v_detail';
+        $this->load->view('layout', $data);
+    }
+
     public function add()
     {
         $this->form_validation->set_rules('name', 'Product name', 'required|min_length[3]|is_unique[products.name]');

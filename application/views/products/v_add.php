@@ -16,7 +16,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Category</label>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" required="required">
                         <option selected>Choose one</option>
                         <?php
                             foreach ($categories as $row) {
@@ -33,7 +33,7 @@
                 
                 <?= validation_errors(); ?>
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a href="#" class="btn btn-light">Cancel</a>
+                <a href="<?= base_url()?>product/list" class="btn btn-light">Cancel</a>
             </form>
         </div>
     </div>
